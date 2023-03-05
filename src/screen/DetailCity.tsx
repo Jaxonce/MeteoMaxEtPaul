@@ -1,15 +1,33 @@
 import { useState } from 'react';
-import { FlatList, Button, StyleSheet, Text, View, TextInput, Image, ScrollView, TabBarIOSItem } from 'react-native';
+import { FlatList, Button, StyleSheet, Text, View, TextInput, Image, ScrollView, TabBarIOSItem, Switch, Pressable } from 'react-native';
 
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 import CityListItem from '../components/CityListItem';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 
-export default function DetailCity({ route }) {
+
+export default function DetailCity({ route, navigation }) {
+    const [isFavorite, setIsFavorite] = useState(false);
+    const addFavorite = () => {
+        setIsFavorite(!isFavorite);
+    }
 
     const weather = route.params.weather;
     return (
         <View style={styles.container}>
+            <View style={styles.header}>
+                <View style={{ flexDirection: "row" }}>
+                    <Pressable onPress={() => navigation.goBack()} style={{ flexDirection: "row"}}>
+                        <Ionicons name="chevron-back" size={24} color="black" />
+                        <Text style={{ fontSize: 20 }}>Home</Text>
+                    </Pressable>
+                </View>
+                <View style={{ flexDirection: "row" }}>
+                    <Pressable onPress={()=> addFavorite()}>
+                        <Ionicons name={isFavorite ? "ios-heart-sharp" : "ios-heart-outline"} size={24}/>
+                    </Pressable>     
+                </View>
+            </View>
 
             <View style={styles.temperature}>
                 <Text style={styles.weatherText}>{weather.city.name}</Text>
@@ -85,5 +103,12 @@ const styles = StyleSheet.create({
     scrollView: {
         width: '100%',
         padding: 0,
-    }
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '90%',
+        margin: 10,
+    },
 });
