@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         flex: 0,
         backgroundColor: '#fff',
         alignItems: 'center',
+        alignSelf: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
         marginTop: 20,
