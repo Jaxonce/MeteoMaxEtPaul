@@ -1,8 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import Meteo from './src/screen/Meteo';
-import NavBar from './src/components/NavBar';
-import DetailMeteo from './src/screen/DetailMeteo';
+import HomePage from './src/screen/HomePage';
 
 import MainTab from './src/navigator/Navigator';
 

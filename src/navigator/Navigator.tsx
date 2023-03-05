@@ -1,13 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { View } from "react-native";
 import * as React from "react";
 import { FontAwesome } from "@expo/vector-icons";
-import DetailMeteo from "../screen/DetailMeteo";
-import Meteo from "../screen/Meteo";
+import HomePage from "../screen/HomePage";
 import AddCity from "../screen/AddCity";
 import Settings from "../screen/Settings";
+import StackNavigator from "./StackNavigator";
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function MainTab() {
     return (
@@ -15,12 +17,12 @@ export default function MainTab() {
             <Tab.Navigator
                 initialRouteName="Home"
                 screenOptions={{ headerShown: false }}>
-                <Tab.Screen name="Home" component={DetailMeteo}
+                <Tab.Screen name="Home" component={StackNavigator}
                     options={{
                         title: 'Home',
                         tabBarIcon: ({ color }) => <TabBarIcon name="home" color="black" />
                     }} />
-                <Tab.Screen name="Favoris" component={DetailMeteo}
+                <Tab.Screen name="Favoris" component={HomePage}
                     options={{
                         title: 'Favoris',
                         tabBarIcon: ({ color }) => <TabBarIcon name="heart" color="black" />
@@ -35,7 +37,6 @@ export default function MainTab() {
                         title: 'Settings',
                         tabBarIcon: ({ color }) => <TabBarIcon name="cog" color="black" />
                     }} />
-
             </Tab.Navigator>
         </NavigationContainer>
     )

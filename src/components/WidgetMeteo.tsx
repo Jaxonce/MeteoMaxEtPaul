@@ -1,27 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground, Pressable } from 'react-native';
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 import { useNavigation } from '@react-navigation/native';
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 
 type WidgetMeteoProps = {
     item: Weather;
 }
-  
-export default function WidgetMeteo(props : WidgetMeteoProps) {
+
+export default function WidgetMeteo(props: WidgetMeteoProps) {
     const windowWidth = Dimensions.get('window').width;
-return (
+    return (
+        
+            <View >
+                <ImageBackground imageStyle={{ borderRadius: 10 }} source={(props.item.temperature < 10) ? require("../../assets/nuageux.jpg") : require("../../assets/soleil.jpg")} style={[styles.container, { width: (windowWidth / 2) - 20, height: (windowWidth / 2) - 20 }]} blurRadius={5}>
 
-    <View >
-            <ImageBackground imageStyle={{borderRadius : 10}} source={(props.item.temperature < 10) ? require("../../assets/nuageux.jpg") : require("../../assets/soleil.jpg")} style={[styles.container,{width : (windowWidth/2)-20, height: (windowWidth/2)-20}]} blurRadius={5}>
+                    <Text style={styles.text}>{props.item.city.name}</Text>
+                    <Text style={styles.textTemp}>{props.item.temperature} °C</Text>
+                </ImageBackground>
 
-            <Text style={styles.text}>{props.item.city.name}</Text>
-            <Text style={styles.textTemp}>{props.item.temperature} °C</Text>
-            </ImageBackground>
+            </View>
 
-    </View>
 
-)
+
+    )
 }
 
 const styles = StyleSheet.create({
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         textShadowColor: 'rgba(0, 0, 0, 0.75)',
-        textShadowOffset: {width: -1, height: 1},
+        textShadowOffset: { width: -1, height: 1 },
         textShadowRadius: 10
     },
     textTemp: {
@@ -57,9 +59,8 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: "bold",
         textShadowColor: 'rgba(0, 0, 0, 0.75)',
-        textShadowOffset: {width: -1, height: 1},
+        textShadowOffset: { width: -1, height: 1 },
         textShadowRadius: 10
     },
 });
-  
-    
+
