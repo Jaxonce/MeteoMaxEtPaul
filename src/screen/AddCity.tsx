@@ -6,9 +6,6 @@ import CityListItem from '../components/CityListItem';
 
 export default function AddCity() {
 
-    const [meteo, setMeteo] = useState("Meteo");
-    const [city, setCity] = useState<City>(new City("Marseille", 48.856614, 2.3522219));
-
 
     return (
         <View style={styles.container}>
