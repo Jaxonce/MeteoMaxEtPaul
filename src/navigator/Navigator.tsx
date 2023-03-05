@@ -1,9 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { View } from "react-native";
+import { TabBarIOSItem, View } from "react-native";
 import * as React from "react";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import HomePage from "../screen/HomePage";
 import AddCity from "../screen/AddCity";
 import Settings from "../screen/Settings";
@@ -19,23 +19,27 @@ export default function MainTab() {
                 screenOptions={{ headerShown: false }}>
                 <Tab.Screen name="Home" component={StackNavigator}
                     options={{
+                        unmountOnBlur: true,
                         title: 'Home',
-                        tabBarIcon: ({ color }) => <TabBarIcon name="home" color="black" />
+                        tabBarIcon: ({ color }) => <Ionicons name="home-outline" color={color} size={24} />
                     }} />
                 <Tab.Screen name="Favoris" component={HomePage}
                     options={{
+                        unmountOnBlur: true,
                         title: 'Favoris',
-                        tabBarIcon: ({ color }) => <TabBarIcon name="heart" color="black" />
+                        tabBarIcon: ({ color }) => <Ionicons name="ios-heart-outline" color={color} size={24} />
                     }} />
                 <Tab.Screen name="AddCity" component={AddCity}
                     options={{
+                        unmountOnBlur: true,
                         title: 'Add',
-                        tabBarIcon: ({ color }) => <FontAwesome name="plus" size={24} color="black" />,
+                        tabBarIcon: ({ color }) => <Ionicons name="ios-add" size={24} color={color} />,
                     }} />
                 <Tab.Screen name="Settings" component={Settings}
                     options={{
+                        unmountOnBlur: true,
                         title: 'Settings',
-                        tabBarIcon: ({ color }) => <TabBarIcon name="cog" color="black" />
+                        tabBarIcon: ({ color }) => <Ionicons name="ios-cog" color={color} size={24}/>
                     }} />
             </Tab.Navigator>
         </NavigationContainer>
