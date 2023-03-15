@@ -8,7 +8,7 @@ export const getCityApi = (cityName:string) =>{
             const response = await fetch(url);
             const json = await response.json();
             const cities: City[] = json["results"].map(v => new City(v["name"],v["latitude"],v["longitude"]));
-            dispatch(cities[0]);
+            dispatch(cities);
         } catch (error) {
             console.log("probleme : ",error);
         }

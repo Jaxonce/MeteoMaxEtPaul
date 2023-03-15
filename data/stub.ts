@@ -2,11 +2,13 @@ export class City {
   private _name: string;
   private _latitude: number;
   private _longitude: number;
+  private _pays: string;
 
-  constructor(name: string, latitude: number, longitude: number) {
+  constructor(name: string, latitude: number, longitude: number, pays: string) {
     this._name = name;
     this._latitude = latitude;
     this._longitude = longitude;
+    this._pays = pays;
   }
 
   get name(): string {
@@ -31,6 +33,14 @@ export class City {
 
   set longitude(value: number) {
     this._longitude = value;
+  }
+
+  get pays(): string {
+    return this._pays;
+  }
+
+  set pays(value: string) {
+    this._pays = value;
   }
 }
 
@@ -141,11 +151,11 @@ export class Weather {
 }
 
 export const CITIES_DATA: City[] = [
-  new City("Paris", 48.866667, 2.333333),
-  new City("Clermont-Ferrand", 45.777222, 3.087025),
-  new City("Lyon", 45.764043, 4.835659),
-  new City("Marseille", 43.296482, 5.36978),
-  new City("Bruxelles", 50.85034, 4.35171),
+  new City("Paris", 48.866667, 2.333333,"France"),
+  new City("Clermont-Ferrand", 45.777222, 3.087025,"France"),
+  new City("Lyon", 45.764043, 4.835659,"France"),
+  new City("Marseille", 43.296482, 5.36978,"France"),
+  new City("Bruxelles", 50.85034, 4.35171,"France"),
 ];
 
 export const FAVORITE_CITY_DATA =
@@ -158,27 +168,27 @@ export const WEATHER_DATA: Weather[] = [
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 7, -4.34,
     82, 5.14, 1032,
-    new City("Paris", 48.866667, 2.333333)
+    CITIES_DATA[0]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 5, -4.34,
     82, 5.14, 1032,
-    new City("Clermont-Ferrand", 45.777222, 3.087025)
+    CITIES_DATA[1]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 6, -4.34,
     82, 5.14, 1032,
-    new City("Lyon", 45.764043, 4.835659)
+    CITIES_DATA[2]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 10, -4.34,
     82, 5.14, 1032,
-    new City("Marseille", 43.296482, 5.36978)
+    CITIES_DATA[3]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 9, -4.34,
     82, 5.14, 1032,
-    new City("Bruxelles", 50.85034, 4.35171)
+    CITIES_DATA[4]
   ),
 ];
 

@@ -16,27 +16,27 @@ export const WEATHER_DATA: Weather[] = [
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 7, -4.34,
     82, 5.14, 1032,
-    new City("Paris", 48.866667, 2.333333)
+    CITIES_DATA[0]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 5, -4.34,
     82, 5.14, 1032,
-    new City("Clermont-Ferrand", 45.777222, 3.087025)
+    CITIES_DATA[1]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 6, -4.34,
     82, 5.14, 1032,
-    new City("Lyon", 45.764043, 4.835659)
+    CITIES_DATA[2]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 10, -4.34,
     82, 5.14, 1032,
-    new City("Marseille", 43.296482, 5.36978)
+    CITIES_DATA[3]
   ),
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
     "couvert", 9, -4.34,
     82, 5.14, 1032,
-    new City("Bruxelles", 50.85034, 4.35171)
+    CITIES_DATA[4]
   ),
 ];
 
