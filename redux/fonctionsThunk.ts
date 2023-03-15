@@ -15,6 +15,7 @@ export const getCityApi = (cityName:string) =>{
     }
 }
 
+
 export const getWeatherCityApi = (ville: City) =>
     if (City === undefined)return {};
     return async dispatch => {
