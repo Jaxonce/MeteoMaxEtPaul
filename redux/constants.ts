@@ -39,6 +39,18 @@ export const WEATHER_DATA: Weather[] = [
     CITIES_DATA[4]
   ),
 ];
+/*
+export function RECUPERER_METEO(){
+    return WEATHER_DATA;
+}
+export function RECUPERER_VILLES(){
+    return CITIES_DATA;
+}*/
+export const RECUPERER_VILLES = 'RECUPERER_VILLES';
+export const RECUPERER_METEO = 'RECUPERER_METEO';
+export const RECHERCHER_VILLES = 'RECHERCHER_VILLES';
+export const FETCH_WEATHER_API = 'FETCH_WEATHER_API';
+
 
 export const getCurrentWeather = (cityName: string) => {
   if (cityName === undefined) return {};

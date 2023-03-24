@@ -8,21 +8,20 @@ import MainTab from './src/navigator/Navigator';
 
 export default function App() {
   return (
-    /*<>
-        {}
+    <>
         <Provider store={store}>
             <SafeAreaView style={styles.topSafeArea}/>
             <SafeAreaView style={styles.mainSafeArea}>
                 <MainTab></MainTab>
             </SafeAreaView>
         </Provider>
-    </>*/
+    </>/*
     <>
         <SafeAreaView style={styles.topSafeArea}/>
         <SafeAreaView style={styles.mainSafeArea}>
             <MainTab></MainTab>
         </SafeAreaView>
-    </>
+    </>*/
   );
 }
 

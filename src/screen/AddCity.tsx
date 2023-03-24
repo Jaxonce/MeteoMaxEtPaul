@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { FlatList, Button, StyleSheet, Text, View, TextInput, Image } from 'react-native';
 
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
+
+
 import CityListItem from '../components/CityListItem';
 
 export default function AddCity() {

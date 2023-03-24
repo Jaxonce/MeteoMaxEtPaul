@@ -1,6 +1,8 @@
+import {RECUPERER_VILLES} from '../constants';
+
 export const setVillesList = (villesList: City[]) => {
     return {
-        type: FETCH_CITIES,
+        type: RECUPERER_VILLES,
         payload: villesList,
     };
 }
