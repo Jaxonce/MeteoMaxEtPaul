@@ -1,4 +1,4 @@
-import {FETCH_WEATHER_API} from '../constants';
+import {FETCH_WEATHER_API, City} from '../constants';
 
 export const setWeather = (ville: City)=>{
     return {

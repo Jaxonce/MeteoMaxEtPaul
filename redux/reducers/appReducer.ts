@@ -1,10 +1,11 @@
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, WEATHER_DATA } from '../../data/stub';
+import {CITIES_DATA, FAVORITE_CITY_DATA, WEATHER_DATA } from '../constants';
 
 const initialState = {
     meteo: WEATHER_DATA,
     villes: CITIES_DATA,
 }
 
+//@ts-ignore
 export default appReducer = (state = initialState, action) => {
     switch (action.type) {/*
         case FETCH_WEATHER_API:

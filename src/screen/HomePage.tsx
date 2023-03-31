@@ -7,7 +7,9 @@ import { NavigationContainer, useRoute } from '@react-navigation/native';
 import {Weather} from '../../data/stub';
 import {useSelector} from 'react-redux';
 
+//@ts-ignore
 export default function HomePage({navigation}) {
+    //@ts-ignore
     const listMeteo = useSelector(state => state.appReducer.meteo)
     return (
         <>

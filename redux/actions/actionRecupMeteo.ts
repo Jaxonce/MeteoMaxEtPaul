@@ -1,6 +1,6 @@
-import {RECUPERER_METEO} from '../constants';
+import {RECUPERER_METEO, Weather} from '../constants';
 
-export const setWeather = (weather: Weather[]) => {
+export const setWeather = (weatherList: Weather[]) => {
     return {
         type: RECUPERER_METEO,
         payload: weatherList,

@@ -5,6 +5,7 @@ import HomePage from './src/screen/HomePage';
 import store from "./redux/store";
 
 import MainTab from './src/navigator/Navigator';
+import { Provider } from 'react-redux';
 
 export default function App() {
   return (

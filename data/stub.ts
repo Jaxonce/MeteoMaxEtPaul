@@ -159,10 +159,10 @@ export const CITIES_DATA: City[] = [
 ];
 
 export const FAVORITE_CITY_DATA =
-  new City("Clermont-Ferrand", 45.777222, 3.087025);
+  new City("Clermont-Ferrand", 45.777222, 3.087025, "FR");
 
 export const DEFAULT_SELECTED_CITY_DATA: City =
-  new City("Paris", 48.866667, 2.333333);
+  new City("Paris", 48.866667, 2.333333, "FR");
 
 export const WEATHER_DATA: Weather[] = [
   new Weather("2023-01-22 09:55:59", 10000, "Nuageux",
