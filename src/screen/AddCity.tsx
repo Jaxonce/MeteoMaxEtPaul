@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { FlatList, Button, StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { getCityApi } from '../../redux/fonctionsThunk';
 
 import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 
 
 import CityListItem from '../components/CityListItem';
+import { useSelector } from 'react-redux';
 
 export default function AddCity() {
+
+   //@ts-ignore 
+   const nList = useSelector(state => state.appReducer.cities);
+
 
 
     return (
