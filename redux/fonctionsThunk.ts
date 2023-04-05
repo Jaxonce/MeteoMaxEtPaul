@@ -1,4 +1,5 @@
-import { City } from "./constants";
+import { setVillesList } from "./actions/actionRecupVille";
+import City from "../src/model/City";
 
 export const getCityApi = (cityName:string) =>{
     if (cityName === undefined)return {};
@@ -14,7 +15,7 @@ export const getCityApi = (cityName:string) =>{
             const json = await response.json();
             //@ts-ignore
             const cities: City[] = json["results"].map(ville => new City(ville["name"],ville["latitude"],ville["longitude"], ville["countryCode"]));
-            dispatch(cities);
+            dispatch(setVillesList(cities));
         } catch (error) {
             console.log("probleme : ",error);
         }

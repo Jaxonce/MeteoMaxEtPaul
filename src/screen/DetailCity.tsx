@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { FlatList, Button, StyleSheet, Text, View, TextInput, Image, ScrollView, TabBarIOSItem, Switch, Pressable } from 'react-native';
-
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
-import CityListItem from '../components/CityListItem';
+import { StyleSheet, Text, View,Pressable } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 
 

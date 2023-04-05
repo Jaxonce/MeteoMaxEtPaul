@@ -1,7 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { TabBarIOSItem, View } from "react-native";
 import * as React from "react";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import HomePage from "../screen/HomePage";

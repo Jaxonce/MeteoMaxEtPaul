@@ -1,30 +1,37 @@
-import { useState } from 'react';
-import { FlatList, Button, StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { useEffect } from 'react';
+import { FlatList,StyleSheet, Text, View, TextInput, Image } from 'react-native';
 import { getCityApi } from '../../redux/fonctionsThunk';
-
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
-
-
-import CityListItem from '../components/CityListItem';
-import { useSelector } from 'react-redux';
+import City from '../model/City';
+import { useDispatch, useSelector } from 'react-redux';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default function AddCity() {
 
-   //@ts-ignore 
-   const nList = useSelector(state => state.appReducer.cities);
+    //@ts-ignore 
+    const nList = useSelector(state => state.appReducer.cities);
 
+    const dispatch = useDispatch();
 
+    useEffect(() => {   
+        const loadedCity = async () => {
+            dispatch(getCityApi("Paris"));
+        };
+        loadedCity();
+    }, [dispatch]);
 
     return (
         <View style={styles.container}>
             <View style={styles.searchBar}>
                 <Image source={require("../../assets/magnifyingglass.png")} style={styles.imageLoupe}></Image>
 
-                <TextInput style={styles.textInput} placeholder="Search">
+                <TextInput style={styles.textInput} placeholder="Search" onChangeText={newText => { dispatch(getCityApi(newText)) }}>
                 </TextInput>
             </View>
 
-            <FlatList data={CITIES_DATA} renderItem={CityListItem}
+            <FlatList data={nList} renderItem={({ item }) => 
+                <TouchableHighlight onPress={() => { console.log("test") }}>
+                    <Text>{item.name}</Text>
+                </TouchableHighlight>}
                 keyExtractor={(item: City) => item.name} />
         </View>
     );

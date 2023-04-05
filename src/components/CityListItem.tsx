@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
+import { CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
 import { useNavigation } from '@react-navigation/native';
+import City from '../model/City';
+import Weather from '../model/Weather';
 
 type CityListItemProps = {
     item: City;

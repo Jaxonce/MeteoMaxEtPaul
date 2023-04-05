@@ -1,4 +1,5 @@
-import {RECUPERER_METEO, Weather} from '../constants';
+import {RECUPERER_METEO} from '../constants';
+import Weather from '../../src/model/Weather';
 
 export const setWeather = (weatherList: Weather[]) => {
     return {

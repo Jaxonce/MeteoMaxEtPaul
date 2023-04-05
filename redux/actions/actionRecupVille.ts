@@ -1,5 +1,5 @@
-import { City } from '../../data/stub';
 import {RECUPERER_VILLES} from '../constants';
+import City from '../../src/model/City';
 
 export const setVillesList = (villesList: City[]) => {
     return {

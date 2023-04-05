@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { Button, FlatList, StyleSheet, Text, View, ImageBackground, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import WidgetMeteo from '../components/WidgetMeteo';
-import { useNavigation } from '@react-navigation/native';
-import { NavigationContainer, useRoute } from '@react-navigation/native';
-//import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather, WEATHER_DATA } from '../../data/stub';
-import {Weather} from '../../data/stub';
+
+
+import Weather from '../model/Weather';
 import {useSelector} from 'react-redux';
 
 //@ts-ignore
