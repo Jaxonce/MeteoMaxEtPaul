@@ -2,12 +2,6 @@
   "name": "expo-init",
   "version": "1.0.0",
   "scripts": {
-<<<<<<< HEAD
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web"
-=======
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -34,7 +28,6 @@
         "safari"
       ]
     }
->>>>>>> brancheRedux
   },
   "dependencies": {
     "@jest/globals": "^29.5.0",
