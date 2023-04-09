@@ -1,39 +1,38 @@
-import { useState } from 'react';
-import { Button, FlatList, StyleSheet, Text, View, ImageBackground, TouchableHighlight, TouchableOpacity } from 'react-native';
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather, WEATHER_DATA } from '../../data/stub';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import WidgetMeteo from '../components/WidgetMeteo';
-import { useNavigation } from '@react-navigation/native';
-import { NavigationContainer, useRoute } from '@react-navigation/native';
 
 
+import Weather from '../model/Weather';
+import {useSelector} from 'react-redux';
+//@ts-ignore
 export default function HomePage({navigation}) {
-  return (
-    <>
-      <FlatList style={styles.flatList} data={WEATHER_DATA} renderItem={({ item }) =>
-        <TouchableOpacity onPress={() => navigation.navigate("DetailCity", {"weather": item})}>
-          <WidgetMeteo item={item}></WidgetMeteo>
-        </TouchableOpacity>} keyExtractor={(item: Weather) => item.city.name} numColumns={2}>
-      </FlatList>
-    </>
-  )
+    //@ts-ignore
+    const listMeteo = useSelector(state => state.appReducer.meteo)
+    return (
+        <>
+            <FlatList style={styles.flatList} data={listMeteo} renderItem={({ item }) =>
+                <TouchableOpacity onPress={() => navigation.navigate("DetailCity", {"weather": item})}>
+                    <WidgetMeteo item={item}></WidgetMeteo>
+                </TouchableOpacity>} keyExtractor={(item: Weather) => item.city.name} numColumns={2}>
+            </FlatList>
+        </>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-  },
-  flatList: {
-    flex: 2,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-
-  },
+    container: {
+        flex: 1,
+        width: '100%',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    flatList: {
+        flex: 2,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+    },
 }
 );
 

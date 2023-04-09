@@ -1,10 +1,8 @@
 //item for meteo in list
 
-import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Switch } from 'react-native';
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
-import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
+import React,{useState} from 'react';
+import { StyleSheet, Text, View, Switch } from 'react-native';
+
 
 type OptionComponentProps = {
     nameOption: String;

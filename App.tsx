@@ -2,18 +2,27 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import HomePage from './src/screen/HomePage';
 
+import store from "./redux/store";
+
 import MainTab from './src/navigator/Navigator';
+import { Provider } from 'react-redux';
 
 export default function App() {
   return (
     <>
-    <SafeAreaView style={styles.topSafeArea}/>
-      <SafeAreaView style={styles.mainSafeArea}>
-       <MainTab></MainTab>
-      </SafeAreaView>
-    </>
-    
-    
+        <Provider store={store}>
+            <SafeAreaView style={styles.topSafeArea}/>
+            <SafeAreaView style={styles.mainSafeArea}>
+                <MainTab></MainTab>
+            </SafeAreaView>
+        </Provider>
+    </>/*
+    <>
+        <SafeAreaView style={styles.topSafeArea}/>
+        <SafeAreaView style={styles.mainSafeArea}>
+            <MainTab></MainTab>
+        </SafeAreaView>
+    </>*/
   );
 }
 

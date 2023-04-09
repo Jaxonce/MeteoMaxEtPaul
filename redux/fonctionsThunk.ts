@@ -1,34 +1,46 @@
+import { setVillesList } from "./actions/actionRecupVille";
+import City from "../src/model/City";
+
 export const getCityApi = (cityName:string) =>{
     if (cityName === undefined)return {};
+    //@ts-ignore
     return async dispatch => {
         try {
-            debutUrl = 'https://geocoding-api.open-meteo.com/v1/search?name=';
-            finUrl = '&language=fr';
+            const debutUrl = 'https://geocoding-api.open-meteo.com/v1/search?name=';
+            const finUrl = '&language=fr';
+            //@ts-ignore
             url= debutUrl.concat(cityName.concat(finUrl));
+            //@ts-ignore
+            console.log(url)
+            //@ts-ignore
             const response = await fetch(url);
             const json = await response.json();
-            const cities: City[] = json["results"].map(v => new City(v["name"],v["latitude"],v["longitude"]));
-            dispatch(cities[0]);
+            console.log(json)
+            //@ts-ignore
+            const cities: City[] = json["results"].map(ville => new City(ville["name"],ville["latitude"],ville["longitude"], ville["country_code"]));
+            dispatch(setVillesList(cities));
         } catch (error) {
             console.log("probleme : ",error);
         }
     }
 }
 
-export const getWeatherCityApi = (ville: City) =>
-    if (City === undefined)return {};
-    return async dispatch => {
+
+export const getWeatherCityApi = (ville: City) => {
+    if(City === undefined)return {};
+    return async (dispatch: (arg0: City) => void) => {
         try {
-            debutUrl = 'https://api.open-meteo.com/v1/meteofrance?latitude=';
-            milieuUrl = '&longitude=';
-            paramHourly = '&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,surface_pressure,cloudcover,windspeed_10m&timeformat=unixtime&start_date=2023-02-03&end_date=2023-02-03&timezone=Europe%2FBerlin';
-            paramDaily ='&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_hours&start_date=2023-03-10&end_date=2023-03-16&timezone=Europe%2FBerlin';
-            miniUrl= debutUrl.concat(City.latitude.toString().concat(milieuUrl.concat(City.longitude.toString)));
-            url= miniUrl.concat(paramHourly);
-            url2= miniUrl.concat()
+            const debutUrl = 'https://api.open-meteo.com/v1/meteofrance?latitude=';
+            const milieuUrl = '&longitude=';
+            const paramHourly = '&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,surface_pressure,cloudcover,windspeed_10m&timeformat=unixtime&start_date=2023-02-03&end_date=2023-02-03&timezone=Europe%2FBerlin';
+            const paramDaily ='&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_hours&start_date=2023-03-10&end_date=2023-03-16&timezone=Europe%2FBerlin';
+            const miniUrl= debutUrl.concat(City.arguments.latitude.toString().concat(milieuUrl.concat(City.arguments.longitude.toString)));
+            const url= miniUrl.concat(paramHourly);
+            const url2= miniUrl.concat()
             const response = await fetch(url);
             const json = await response.json();
-            const cities: City[] = json["results"].map(v => new City(v["name"],v["latitude"],v["longitude"]));
+            //@ts-ignore
+            const cities: City[] = json["results"].map(ville => new City(ville["name"],ville["latitude"],ville["longitude"],ville["countryCode"]));
             dispatch(cities[0]);
         } catch (error) {
             console.log("probleme : ",error);

@@ -1,8 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground, Pressable } from 'react-native';
-import { City, Weather, CITIES_DATA, FAVORITE_CITY_DATA, getCurrentWeather } from '../../data/stub';
-import { useNavigation } from '@react-navigation/native';
-import { Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Dimensions } from 'react-native';
+import Weather from '../model/Weather';
 
 type WidgetMeteoProps = {
     item: Weather;
