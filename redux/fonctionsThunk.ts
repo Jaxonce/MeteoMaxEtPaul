@@ -11,10 +11,13 @@ export const getCityApi = (cityName:string) =>{
             //@ts-ignore
             url= debutUrl.concat(cityName.concat(finUrl));
             //@ts-ignore
+            console.log(url)
+            //@ts-ignore
             const response = await fetch(url);
             const json = await response.json();
+            console.log(json)
             //@ts-ignore
-            const cities: City[] = json["results"].map(ville => new City(ville["name"],ville["latitude"],ville["longitude"], ville["countryCode"]));
+            const cities: City[] = json["results"].map(ville => new City(ville["name"],ville["latitude"],ville["longitude"], ville["country_code"]));
             dispatch(setVillesList(cities));
         } catch (error) {
             console.log("probleme : ",error);

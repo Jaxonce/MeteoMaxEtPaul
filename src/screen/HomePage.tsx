@@ -5,7 +5,6 @@ import WidgetMeteo from '../components/WidgetMeteo';
 import Weather from '../model/Weather';
 import {useSelector} from 'react-redux';
 
-//@ts-ignore
 export default function HomePage({navigation}) {
     //@ts-ignore
     const listMeteo = useSelector(state => state.appReducer.meteo)

@@ -8,29 +8,29 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 export default function AddCity() {
 
     //@ts-ignore 
-    const nList = useSelector(state => state.appReducer.cities);
+    const nList = useSelector(state => state.appReducer.villes);
 
     const dispatch = useDispatch();
 
-    useEffect(() => {   
-        const loadedCity = async () => {
-            dispatch(getCityApi("Paris"));
-        };
-        loadedCity();
-    }, [dispatch]);
+    // useEffect(() => {   
+    //     const loadedCity = async () => {
+    //         dispatch(getCityApi());
+    //     };
+    //     loadedCity();
+    // }, [dispatch]);
 
     return (
         <View style={styles.container}>
             <View style={styles.searchBar}>
                 <Image source={require("../../assets/magnifyingglass.png")} style={styles.imageLoupe}></Image>
 
-                <TextInput style={styles.textInput} placeholder="Search" onChangeText={newText => { dispatch(getCityApi(newText)) }}>
+                <TextInput style={styles.textInput} placeholder="Search" onChangeText={ newText => { dispatch(getCityApi(newText)) } }>
                 </TextInput>
             </View>
 
             <FlatList data={nList} renderItem={({ item }) => 
-                <TouchableHighlight onPress={() => { console.log("test") }}>
-                    <Text>{item.name}</Text>
+                <TouchableHighlight onPress={() => {  }}>
+                    <Text>{item.name + item.pays}</Text>
                 </TouchableHighlight>}
                 keyExtractor={(item: City) => item.name} />
         </View>

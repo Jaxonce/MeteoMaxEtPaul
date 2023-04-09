@@ -16,6 +16,7 @@ export default appReducer = (state = initialState, action) => {
         case RECUPERER_METEO:
             return {...state, meteo: action.payload};
         case RECUPERER_VILLES:
+            console.log("================================================================================================="+ action.payload)
             return {...state, villes: action.payload};
         default:
             return state;
